@@ -1,0 +1,19 @@
+{
+  "name": "fem-typescript-library",
+  "packageManager": "yarn@3.8.7",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "yarn tsc",
+    "dev": "yarn build --watch --preserveWatchOutput",
+    "lint": "yarn eslint src --ext js,ts",
+    "test": "yarn jest"
+  },
+  "devDependencies": {
+    "typescript": "~5.3.0"
+  },
+  "volta": {
+    "node": "22.20.0",
+    "yarn": "3.8.7"
+  }
+}
