@@ -61,11 +61,29 @@ export function stringifyErrorValue(err: Error): string {
  * @beta
  */
 export function stringifyError(err: unknown, errorDescription?: string) {
-  return `${errorDescription ?? "( no error description )"}\n${
-    err instanceof Error
-      ? stringifyErrorValue(err)
-      : err
-      ? "" + err
-      : "(missing error information)"
-  }`;
+  let errString: string;
+
+  if (err instanceof Error) {
+    errString = stringifyErrorValue(err);
+  } else if (err == null) {
+    errString = "(missing error information)";
+  } else if (
+    typeof err === "string" ||
+    typeof err === "number" ||
+    typeof err === "boolean" ||
+    typeof err === "bigint" ||
+    typeof err === "symbol"
+  ) {
+    errString = String(err);
+  } else {
+    // For plain objects, attempt JSON.stringify; fall back to Object.prototype.toString
+    try {
+      const json = JSON.stringify(err, Object.getOwnPropertyNames(err), 2);
+      errString = json && json !== "null" ? json : Object.prototype.toString.call(err);
+    } catch {
+      errString = Object.prototype.toString.call(err);
+    }
+  }
+
+  return `${errorDescription ?? "( no error description )"}\n${errString}`;
 }
