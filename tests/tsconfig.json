@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.json",
+    "references": [{ "name": "fem-typescript-library", "path": ".." }],
+    "compilerOptions": {
+        "types": ["jest"],
+        "rootDir": "..",
+        "paths": {
+            "fem-typescript-library": ["../dist/fem-typescript-library-beta.d.ts"],
+        }
+    },
+    "include": ["."]
+}

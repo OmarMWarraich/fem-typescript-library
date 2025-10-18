@@ -10,10 +10,15 @@
     "test": "yarn jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-typescript": "^7.27.1",
     "@types/eslint": "^9",
+    "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "eslint": "^8",
+    "jest": "^30.2.0",
     "typescript": "~5.3.0"
   },
   "volta": {
