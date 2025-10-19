@@ -12,7 +12,7 @@ Stringify a thrown value
 **Signature:**
 
 ```typescript
-export declare function stringifyError(err: unknown, errorDescription?: string): string;
+export declare function stringifyError(err: unknown, errorDescription: string): string;
 ```
 
 ## Parameters
@@ -61,7 +61,7 @@ string
 
 </td><td>
 
-_(Optional)_ A contextual description of the error
+A contextual description of the error
 
 
 </td></tr>
