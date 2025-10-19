@@ -10,7 +10,10 @@
     "watch": "concurrently -c 'red,blue' -n 'TS,JEST' \"yarn watch-build\" \"yarn watch-tests\"",
     "watch-build": "yarn tsc --watch --preserveWatchOutput",
     "watch-tests": "yarn jest --watch",
-    "test": "yarn build && yarn jest"
+    "test": "yarn build && yarn jest",
+    "api-report": "yarn api-extractor run",
+    "api-docs": "yarn api-documenter markdown -i temp -o docs",
+    "build-with-docs": "yarn build && yarn api-report && yarn api-docs"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
