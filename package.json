@@ -7,7 +7,10 @@
     "build": "yarn tsc",
     "dev": "yarn build --watch --preserveWatchOutput",
     "lint": "yarn eslint src --ext js,ts",
-    "test": "yarn jest"
+    "watch": "concurrently -c 'red,blue' -n 'TS,JEST' \"yarn watch-build\" \"yarn watch-tests\"",
+    "watch-build": "yarn tsc --watch --preserveWatchOutput",
+    "watch-tests": "yarn jest --watch",
+    "test": "yarn build && yarn jest"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -17,6 +20,7 @@
     "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "concurrently": "^9.2.1",
     "eslint": "^8",
     "jest": "^30.2.0",
     "typescript": "~5.3.0"
